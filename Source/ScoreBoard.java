@@ -5,23 +5,21 @@ public class ScoreBoard {
     private Hand hand;
     private Pig[] handArray;
 
-    public ScoreBoard(Hand h) {
-        constructorCurrentHand(h);
+    public ScoreBoard() {
         finalScore = new int[12];
         hasScore = new boolean[12];
     }
 
-    public void constructorCurrentHand(Hand h) {
+    public void setCurrentHand(Hand h) {
         currentHandScore = new int[12];
         hand = h;
-        handArray = hand.getHandArray();
     }
 
-    public void setCurrentScore() {
+    public int[] setCurrentScore() {
         if (!hasScore[0]){
             currentHandScore[0] = calculateSide();
         }
-        if (!hasScore[1]){
+        if (!hasScore[1]) {
             currentHandScore[1] = calculateRazorback();
         }
         if (!hasScore[2]){
@@ -51,15 +49,17 @@ public class ScoreBoard {
         if (!hasScore[10]) {
             currentHandScore[10] = calculateMixedCombo();
         }
-        //if (!hasScore[11]) {
-            //currentHandScore[11] = calculatePiggyBack();
-        //}
+        if (!hasScore[11]) {
+            currentHandScore[11] = calculateYahtzee();
+        }
+
+        return currentHandScore;
     }
 
     public int calculateSide() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (hand.getHandArray()[i].getPigVal() == Pig.CurPig.SIDE) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.SIDE) {
                 currentCount++;
             }
         }
@@ -69,7 +69,7 @@ public class ScoreBoard {
     public int calculateRazorback() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (handArray[i].getPigVal() == Pig.CurPig.RAZORBACK) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.RAZORBACK) {
                 currentCount++;
             }
         }
@@ -79,7 +79,7 @@ public class ScoreBoard {
     public int calculateTrotter() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (handArray[i].getPigVal() == Pig.CurPig.TROTTER) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.TROTTER) {
                 currentCount++;
             }
         }
@@ -89,7 +89,7 @@ public class ScoreBoard {
     public int calculateSnouter() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (handArray[i].getPigVal() == Pig.CurPig.SNOUTER) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.SNOUTER) {
                 currentCount++;
             }
         }
@@ -99,7 +99,7 @@ public class ScoreBoard {
     public int calculateLeaningJowler() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (handArray[i].getPigVal() == Pig.CurPig.LEANING_JOWLER) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.LEANING_JOWLER) {
                 currentCount++;
             }
         }
@@ -159,17 +159,28 @@ public class ScoreBoard {
     public int calculateMixedCombo() {
         int total = 0;
         for (int i = 0; i < 4; i++) {
-            if (handArray[i].getPigVal() == Pig.CurPig.SIDE) {
+            if (hand.thePigs[i].getPigVal() == Pig.CurPig.SIDE) {
                 total += 1;
-            } else if (handArray[i].getPigVal() == Pig.CurPig.RAZORBACK) {
+            } else if (hand.thePigs[i].getPigVal() == Pig.CurPig.RAZORBACK) {
                 total += 3;
-            } else if (handArray[i].getPigVal() == Pig.CurPig.TROTTER) {
+            } else if (hand.thePigs[i].getPigVal() == Pig.CurPig.TROTTER) {
                 total += 5;
-            } else if (handArray[i].getPigVal() == Pig.CurPig.SNOUTER) {
+            } else if (hand.thePigs[i].getPigVal() == Pig.CurPig.SNOUTER) {
                 total += 7;
             } else {
                 total += 10;
             }
+        }
+        return total;
+    }
+
+    public int calculateYahtzee() {
+        // all four leaning jowlers
+        int leaningJowler = calculateLeaningJowler();
+        if (leaningJowler >= 40) {
+            return 500;
+        } else {
+            return 0;
         }
     }
 

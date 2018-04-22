@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Pig {
     CurPig pigVal;
-
     public enum CurPig {
         SIDE, RAZORBACK, TROTTER, SNOUTER, LEANING_JOWLER
     }
@@ -12,7 +11,7 @@ public class Pig {
     }
 
     public Pig() {
-        pigVal = null;
+        pigVal = CurPig.SIDE;
     }
 
     public CurPig getPigVal() {
@@ -24,26 +23,26 @@ public class Pig {
     }
 
     @Override
+
     public String toString() {
         return " " + pigVal + " ";
     }
 
-    public void rollDie(){
+    public void roll(){
         Random random = new Random();
         int randomNumber = random.nextInt(100);
         if(randomNumber >= 0 && randomNumber < 65){
-             pigVal = CurPig.SIDE;
+            this.pigVal = CurPig.SIDE;
         }else if(randomNumber >= 65 && randomNumber < 85){
-            pigVal = CurPig.RAZORBACK;
+            this.pigVal = CurPig.RAZORBACK;
         }else if(randomNumber >= 85 && randomNumber < 95){
-            pigVal = CurPig.TROTTER;
+            this.pigVal = CurPig.TROTTER;
         }else if(randomNumber >= 95 && randomNumber < 99){
-            pigVal =  CurPig.SNOUTER;
+            this.pigVal = CurPig.SNOUTER;
         }else if(randomNumber == 99){
-            pigVal = CurPig.LEANING_JOWLER;
+            this.pigVal = CurPig.LEANING_JOWLER;
         }else{
-            pigVal = null;
+            this.pigVal = null;
         }
     }
-
 }
