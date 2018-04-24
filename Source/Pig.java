@@ -1,3 +1,5 @@
+package passthepigs;
+
 import java.util.Random;
 
 public class Pig {
@@ -46,3 +48,4 @@ public class Pig {
         }
     }
 }
+

@@ -1,12 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package passthepigs;
+
 public class ScoreBoard {
     private int[] currentHandScore;
     private boolean[] hasScore;
     private int[] finalScore;
     private Hand hand;
-    private Pig[] handArray;
 
-    public ScoreBoard() {
-        finalScore = new int[12];
+    public ScoreBoard(Hand h) {
+        setCurrentHand(h);
+        currentHandScore = new int[12];
+        finalScore = new int[14];
         hasScore = new boolean[12];
     }
 
@@ -185,7 +193,7 @@ public class ScoreBoard {
     }
 
     // when button row is pressed, this function will be called
-    public void setRowScore(int rowNum) {
+    public void setFinalScore(int rowNum) {
         finalScore[rowNum - 1] = currentHandScore[rowNum - 1];
         hasScore[rowNum - 1] = true;
     }
@@ -195,7 +203,7 @@ public class ScoreBoard {
         for (int i = 0; i < 5; i++) {
             upperTotal += finalScore[i];
         }
-        if (upperTotal >= 50) {
+        if (upperTotal >= 30) {
             return 35;
         } else {
             return 0;
@@ -209,5 +217,30 @@ public class ScoreBoard {
         }
         total += calculateBonus();
         return total;
+    }
+    
+    public void setBonus() {
+        finalScore[12] = calculateBonus();
+    }
+    
+    public void setTotal() {
+        finalScore[13] = calculateFinalScore();
+    }
+    
+    public boolean getHasScore(int rowNum) {
+        return hasScore[rowNum];
+    }
+    
+    public int getCurrentScore(int rowNum) {
+        return currentHandScore[rowNum];
+    }
+    
+    public int getFinalScore(int rowNum) {
+        return finalScore[rowNum];
+    }
+    
+    // test
+    public void setFinalScore(int rowNum, int value) {
+        finalScore[rowNum] = value;
     }
 }

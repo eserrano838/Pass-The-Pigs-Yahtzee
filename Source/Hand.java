@@ -1,10 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package passthepigs;
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class Hand {
     //array to hold the value of each pig in the hand
     protected Pig[] thePigs;
-    private int numRolls;
 
     //constructor that initializes every index in the array to
     // a new Pig object
@@ -24,6 +30,30 @@ public class Hand {
             }
         }
     }
+    
+    public boolean keepingAllDice(String keep) {
+        int count = 0;
+        char[] charArr = keep.toCharArray();
+        for (int i = 0; i < 4; i++) {
+            if (charArr[i] == 'y') {
+                count++;
+            }
+        }
+        return count == 4;
+    }
+    
+    public void keepDice(String yesOrNo){
+        char[] yesOrNoArray = yesOrNo.toCharArray();
+        int counterIndex = 0;
+        for (char achar:yesOrNoArray) {
+            if(achar == 'y'){
+                thePigs[counterIndex].roll();
+            }else{
+                //do nothing
+            }
+            counterIndex++;
+        }
+    }
 
     public void displayHand(){
         for (Pig pig:thePigs) {
@@ -39,16 +69,6 @@ public class Hand {
         thePigs = myArray.clone();
     }
 
-    public void keepDice(String yesOrNo){
-        char[] yesOrNoArray = yesOrNo.toCharArray();
-        int counterIndex = 0;
-        for (char achar:yesOrNoArray) {
-            if(achar == 'y'){
-                thePigs[counterIndex].roll();
-            }else{
-                //do nothing
-            }
-            counterIndex++;
-        }
-    }
+    
 }
+
