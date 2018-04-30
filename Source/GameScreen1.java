@@ -20,7 +20,7 @@ public class GameScreen1 extends JFrame implements ActionListener
     private int rollCounter;
     ImageIcon titleIcon = new ImageIcon("title.png");
     JLabel titleLabel = new JLabel(new ImageIcon("src/Images/title.PNG"));
-    JLabel scoreBoardLabel = new JLabel("ScoreCard");
+    JLabel scoreBoardLabel = new JLabel("Row: ");
     JButton sideBtn = new JButton("Side");
     JButton rzrBkBtn = new JButton("Razorback");
     JButton trotterBtn = new JButton("Trotter");
@@ -60,6 +60,7 @@ public class GameScreen1 extends JFrame implements ActionListener
     JLabel pig2 = new JLabel();
     JLabel pig3 = new JLabel();
     JLabel pig4 = new JLabel();
+    JLabel currentPlayer = new JLabel("PLAYER 1's TURN");
     JButton pigBtn1 = new JButton("HOLD");
     JButton pigBtn2 = new JButton("HOLD");
     JButton pigBtn3 = new JButton("HOLD");
@@ -96,54 +97,60 @@ public class GameScreen1 extends JFrame implements ActionListener
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.setLayout(new GridBagLayout());
 
-        buttonPanel.add(titleLabel, new GBC(3, 0, 7, 1).setFill(GBC.CENTER));
-        buttonPanel.add(scoreBoardLabel, new GBC(0, 1).setFill(GBC.HORIZONTAL).setInsets(1));
-        buttonPanel.add(sideBtn, new GBC(1, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(rzrBkBtn, new GBC(2, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(trotterBtn, new GBC(3, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(snouterBtn, new GBC(4, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(leaningJowlerBtn, new GBC(5, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(dbRzrbkBtn, new GBC(6, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(dbTrottereBtn, new GBC(7, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(dbSnouterBtn, new GBC(8, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(dblnJowlerBtn, new GBC(9, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(mixedComboBtn, new GBC(10, 1).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(piggybackBtn, new GBC(11, 1).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(titleLabel, new GBC(3, 0, 7, 1).setFill(GBC.NORTH));
+        buttonPanel.add(currentPlayer, new GBC(3, 1, 7, 1).setFill(GBC.CENTER));
+        currentPlayer.setText("PLAYER 1's TURN");
+        currentPlayer.setFont(new Font("Ultra", Font.PLAIN, 24));
+        currentPlayer.setBackground(Color.ORANGE);
+        buttonPanel.add(scoreBoardLabel, new GBC(0, 2).setFill(GBC.HORIZONTAL).setInsets(1));
+        buttonPanel.add(sideBtn, new GBC(1, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(rzrBkBtn, new GBC(2, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(trotterBtn, new GBC(3, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(snouterBtn, new GBC(4, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(leaningJowlerBtn, new GBC(5, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(dbRzrbkBtn, new GBC(6, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(dbTrottereBtn, new GBC(7, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(dbSnouterBtn, new GBC(8, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(dblnJowlerBtn, new GBC(9, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(mixedComboBtn, new GBC(10, 2).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(piggybackBtn, new GBC(11, 2).setFill(GBC.HORIZONTAL));
 
-        buttonPanel.add(player1Label, new GBC(0, 2).setFill(GBC.HORIZONTAL));
-        buttonPanel.add(label1, new GBC(1, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label2, new GBC(2, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label3, new GBC(3, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label4, new GBC(4, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label5, new GBC(5, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label6, new GBC(6, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label7, new GBC(7, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label8, new GBC(8, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label9, new GBC(9, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label10, new GBC(10, 2).setFill(GBC.CENTER));
-        buttonPanel.add(label11, new GBC(11, 2).setFill(GBC.CENTER));
+        buttonPanel.add(player1Label, new GBC(0, 3).setFill(GBC.HORIZONTAL));
+        buttonPanel.add(label1, new GBC(1, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label2, new GBC(2, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label3, new GBC(3, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label4, new GBC(4, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label5, new GBC(5, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label6, new GBC(6, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label7, new GBC(7, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label8, new GBC(8, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label9, new GBC(9, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label10, new GBC(10, 3).setFill(GBC.CENTER));
+        buttonPanel.add(label11, new GBC(11, 3).setFill(GBC.CENTER));
 
-        buttonPanel.add(player2Label, new GBC(0, 3).setFill(GBC.HORIZONTAL).setInsets(1));
-        buttonPanel.add(label12, new GBC(1, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label13, new GBC(2, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label14, new GBC(3, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label15, new GBC(4, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label16, new GBC(5, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label17, new GBC(6, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label18, new GBC(7, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label19, new GBC(8, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label20, new GBC(9, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label21, new GBC(10, 3).setFill(GBC.CENTER));
-        buttonPanel.add(label22, new GBC(11, 3).setFill(GBC.CENTER));
+        buttonPanel.add(player2Label, new GBC(0, 4).setFill(GBC.HORIZONTAL).setInsets(1));
+        buttonPanel.add(label12, new GBC(1, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label13, new GBC(2, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label14, new GBC(3, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label15, new GBC(4, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label16, new GBC(5, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label17, new GBC(6, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label18, new GBC(7, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label19, new GBC(8, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label20, new GBC(9, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label21, new GBC(10, 4).setFill(GBC.CENTER));
+        buttonPanel.add(label22, new GBC(11, 4).setFill(GBC.CENTER));
+
+
 
         pig1.setBorder(BorderFactory.createLineBorder(Color.black));
         pig2.setBorder(BorderFactory.createLineBorder(Color.black));
         pig3.setBorder(BorderFactory.createLineBorder(Color.black));
         pig4.setBorder(BorderFactory.createLineBorder(Color.black));
-        buttonPanel.add(pig1, new GBC(1, 4, 2, 3).setFill(GBC.CENTER));
-        buttonPanel.add(pig2, new GBC(4, 4, 2, 3).setFill(GBC.CENTER));
-        buttonPanel.add(pig3, new GBC(7, 4, 2, 3).setFill(GBC.CENTER));
-        buttonPanel.add(pig4, new GBC(10, 4, 2, 3).setFill(GBC.CENTER));
+        buttonPanel.add(pig1, new GBC(1, 5, 2, 3).setFill(GBC.CENTER));
+        buttonPanel.add(pig2, new GBC(4, 5, 2, 3).setFill(GBC.CENTER));
+        buttonPanel.add(pig3, new GBC(7, 5, 2, 3).setFill(GBC.CENTER));
+        buttonPanel.add(pig4, new GBC(10, 5, 2, 3).setFill(GBC.CENTER));
         //// Hold Buttons
         pigBtn1.setFont(new Font("Ultra", Font.PLAIN, 24));
         pigBtn1.setBackground(Color.ORANGE);
@@ -154,12 +161,12 @@ public class GameScreen1 extends JFrame implements ActionListener
         pigBtn4.setFont(new Font("Ultra", Font.PLAIN, 24));
         pigBtn4.setBackground(Color.ORANGE);
 
-        buttonPanel.add(pigBtn1, new GBC(1, 7, 2, 1).setFill(GBC.CENTER));
-        buttonPanel.add(pigBtn2, new GBC(4, 7, 2, 1).setFill(GBC.CENTER));
-        buttonPanel.add(pigBtn3, new GBC(7, 7, 2, 1).setFill(GBC.CENTER));
-        buttonPanel.add(pigBtn4, new GBC(10, 7, 2, 1).setFill(GBC.CENTER));
+        buttonPanel.add(pigBtn1, new GBC(1, 8, 2, 1).setFill(GBC.CENTER));
+        buttonPanel.add(pigBtn2, new GBC(4, 8, 2, 1).setFill(GBC.CENTER));
+        buttonPanel.add(pigBtn3, new GBC(7, 8, 2, 1).setFill(GBC.CENTER));
+        buttonPanel.add(pigBtn4, new GBC(10, 8, 2, 1).setFill(GBC.CENTER));
         rollBtn.setBackground(Color.WHITE);
-        buttonPanel.add(rollBtn, new GBC(5, 8, 4, 1).setFill(GBC.CENTER));
+        buttonPanel.add(rollBtn, new GBC(5, 9, 4, 1).setFill(GBC.CENTER));
 
 
         add(buttonPanel);
@@ -328,14 +335,17 @@ public class GameScreen1 extends JFrame implements ActionListener
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(0);
                 displayFinalScore1(player1ScoreBoard);
+                label1.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(0);
                 displayFinalScore2(player2ScoreBoard);
+                label12.setForeground(Color.red);
             }
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         } else if (e.getSource() == rzrBkBtn) {
             System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
             System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
@@ -343,9 +353,11 @@ public class GameScreen1 extends JFrame implements ActionListener
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(1);
                 displayFinalScore1(player1ScoreBoard);
+                label2.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(1);
                 displayFinalScore2(player2ScoreBoard);
+                label13.setForeground(Color.red);
             }
             System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
             System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
@@ -355,6 +367,7 @@ public class GameScreen1 extends JFrame implements ActionListener
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         } else if (e.getSource() == trotterBtn) {
             System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
             System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
@@ -362,9 +375,11 @@ public class GameScreen1 extends JFrame implements ActionListener
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(2);
                 displayFinalScore1(player1ScoreBoard);
+                label3.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(2);
                 displayFinalScore2(player2ScoreBoard);
+                label14.setForeground(Color.red);
             }
             System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
             System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
@@ -374,6 +389,7 @@ public class GameScreen1 extends JFrame implements ActionListener
             resetHands();
             resetKeeping();
             turnCounter++;
+            togglePlayerLabel();
         } else if (e.getSource() == snouterBtn) {
             System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
             System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
@@ -381,134 +397,127 @@ public class GameScreen1 extends JFrame implements ActionListener
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(3);
                 displayFinalScore1(player1ScoreBoard);
+                label4.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(3);
                 displayFinalScore2(player2ScoreBoard);
+                label15.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         } else if (e.getSource() == leaningJowlerBtn) {
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(4);
                 displayFinalScore1(player1ScoreBoard);
+                label5.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(4);
                 displayFinalScore2(player2ScoreBoard);
+                label16.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         } else if (e.getSource() == dbRzrbkBtn) {
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
             rollCounter = 0;
-            for (char c:keep) {
-                c = 'n';
-            }
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(5);
                 displayFinalScore1(player1ScoreBoard);
+                label6.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(5);
                 displayFinalScore2(player2ScoreBoard);
+                label17.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
+            togglePlayerLabel();
         } else if (e.getSource() == dbTrottereBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(6);
                 displayFinalScore1(player1ScoreBoard);
+                label7.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(6);
                 displayFinalScore2(player2ScoreBoard);
+                label18.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
+            togglePlayerLabel();
         } else if (e.getSource() == dbSnouterBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(7);
                 displayFinalScore1(player1ScoreBoard);
+                label8.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(7);
                 displayFinalScore2(player2ScoreBoard);
+                label19.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         } else if (e.getSource() == dblnJowlerBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(8);
                 displayFinalScore1(player1ScoreBoard);
+                label9.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(8);
                 displayFinalScore2(player2ScoreBoard);
+                label20.setForeground(Color.red);
             }
             setRowButtonsUnclickable();
             turnCounter++;
+            togglePlayerLabel();
         } else if (e.getSource() == mixedComboBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(9);
                 displayFinalScore1(player1ScoreBoard);
+                label10.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(9);
                 displayFinalScore2(player2ScoreBoard);
+                label21.setForeground(Color.red);
             }
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         }else if(e.getSource() == piggybackBtn){
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(10);
                 displayFinalScore1(player1ScoreBoard);
+                label11.setForeground(Color.red);
             } else {
                 player2ScoreBoard.setFinalScore(10);
                 displayFinalScore2(player2ScoreBoard);
+                label12.setForeground(Color.red);
             }
             setRowButtonsUnclickable();
             turnCounter++;
             resetHands();
             resetKeeping();
+            togglePlayerLabel();
         }else if(e.getSource() == pigBtn1) {
             if(keep[0] == 'n'){
                 keep[0] = 'y';
@@ -543,13 +552,6 @@ public class GameScreen1 extends JFrame implements ActionListener
                 pigBtn4.setText("HOLD");
             }
         }else if(e.getSource() == rollBtn) {
-            System.out.println(turnCounter + " turn counter");
-            System.out.println(rollCounter + " roll counter");
-            System.out.println(Arrays.toString(keep));
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             player1ScoreBoard.setCurrentHand(player1Hand);
             player2ScoreBoard.setCurrentHand(player2Hand);
             if(turnCounter % 2 == 0 && rollCounter == 0){
@@ -585,17 +587,19 @@ public class GameScreen1 extends JFrame implements ActionListener
             }else{
                 System.out.println("INVALID CHOICE");
             }
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
             setHoldButtonsClickable();
             setRowButtonsClickable();
             rollCounter++;
         }else {
 
+        }
+    }
+
+    public void togglePlayerLabel(){
+        if(currentPlayer.getText() == "PLAYER 1's TURN"){
+            currentPlayer.setText("PLAYER 2's TURN");
+        }else{
+            currentPlayer.setText("PLAYER 1's TURN");
         }
     }
 
