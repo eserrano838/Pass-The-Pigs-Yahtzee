@@ -1,4 +1,4 @@
-package passthepigs;
+//package passthepigs;
 
 public class PassThePigs {
     public static void main(String[] args) {
@@ -7,10 +7,10 @@ public class PassThePigs {
         /*
         Hand hand1 = new Hand();
         ScoreBoard score1 = new ScoreBoard(hand1);
-        
+
         Hand hand2 = new Hand();
-        ScoreBoard score2 = new ScoreBoard(hand2);   
-        
+        ScoreBoard score2 = new ScoreBoard(hand2);
+
         score1.setFinalScore(0,4);
         score1.setFinalScore(1,6);
         score1.setFinalScore(2,5);
@@ -23,7 +23,7 @@ public class PassThePigs {
         score1.setFinalScore(9,0);
         score1.setFinalScore(10,10);
         score1.setFinalScore(11,0);
-        
+
         score2.setFinalScore(0,4);
         score2.setFinalScore(1,3);
         score2.setFinalScore(2,5);
@@ -36,7 +36,7 @@ public class PassThePigs {
         score2.setFinalScore(9,40);
         score2.setFinalScore(10,10);
         score2.setFinalScore(11,0);
-        
+
         score1.setBonus();
         score1.setTotal();
         game.displayFinalScore(score1);

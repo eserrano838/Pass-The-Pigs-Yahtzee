@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package passthepigs;
+//package passthepigs;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -22,15 +22,14 @@ public class Hand {
         thePigs[3] = new Pig();
     }
 
-    public void rollPigs(String keep) {
-        char[] charArr = keep.toCharArray();
+    public void rollPigs(char[] keep) {
         for (int i = 0; i < 4; i++) {
-            if (charArr[i] != 'y') {
+            if (keep[i] != 'y') {
                 thePigs[i].roll();
             }
         }
     }
-    
+
     public boolean keepingAllDice(String keep) {
         int count = 0;
         char[] charArr = keep.toCharArray();
@@ -41,7 +40,7 @@ public class Hand {
         }
         return count == 4;
     }
-    
+
     public void keepDice(String yesOrNo){
         char[] yesOrNoArray = yesOrNo.toCharArray();
         int counterIndex = 0;
@@ -69,6 +68,5 @@ public class Hand {
         thePigs = myArray.clone();
     }
 
-    
-}
 
+}

@@ -3,25 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package passthepigs;
+//package passthepigs;
 
 public class ScoreBoard {
-    private int[] currentHandScore;
+    public int[] currentHandScore;
     private boolean[] hasScore;
-    private int[] finalScore;
+    public int[] finalScore;
     private Hand hand;
 
     public ScoreBoard(Hand h) {
         setCurrentHand(h);
-        currentHandScore = new int[12];
-        finalScore = new int[14];
-        hasScore = new boolean[12];
+        currentHandScore = new int[11];
+        finalScore = new int[13];
+        hasScore = new boolean[11];
     }
 
     public void setCurrentHand(Hand h) {
-        currentHandScore = new int[12];
+        currentHandScore = new int[11];
         hand = h;
     }
+
+    public void setTheScores(){
+        for (int score:finalScore) {
+
+        }
+    }
+
 
     public int[] setCurrentScore() {
         if (!hasScore[0]){
@@ -40,27 +47,23 @@ public class ScoreBoard {
             currentHandScore[4] = calculateLeaningJowler();
         }
         if (!hasScore[5]) {
-            currentHandScore[5] = calculateSider();
+            currentHandScore[5] = calculateDoubleRazorback();
         }
         if (!hasScore[6]) {
-            currentHandScore[6] = calculateDoubleRazorback();
+            currentHandScore[6] = calculateDoubleTrotter();
         }
         if (!hasScore[7]) {
-            currentHandScore[7] = calculateDoubleTrotter();
+            currentHandScore[7] = calculateDoubleSnouter();
         }
         if (!hasScore[8]) {
-            currentHandScore[8] = calculateDoubleSnouter();
+            currentHandScore[8] = calculateDoubleLeaningJowler();
         }
         if (!hasScore[9]) {
-            currentHandScore[9] = calculateDoubleLeaningJowler();
+            currentHandScore[9] = calculateMixedCombo();
         }
         if (!hasScore[10]) {
-            currentHandScore[10] = calculateMixedCombo();
+            currentHandScore[10] = calculateYahtzee();
         }
-        if (!hasScore[11]) {
-            currentHandScore[11] = calculateYahtzee();
-        }
-
         return currentHandScore;
     }
 
@@ -114,16 +117,6 @@ public class ScoreBoard {
         return 10 * currentCount;
     }
 
-    public int calculateSider() {
-        int sider = calculateSide();
-        // if all pigs are side
-        if (sider == 4) {
-            return 20;
-        } else {
-            return 0;
-        }
-    }
-
     public int calculateDoubleRazorback() {
         int razorback = calculateRazorback();
         // at least two pig razorback
@@ -155,7 +148,7 @@ public class ScoreBoard {
     }
 
     public int calculateDoubleLeaningJowler() {
-        int leaningJowler = calculateRazorback();
+        int leaningJowler = calculateLeaningJowler();
         // at least two pig leaning jowler
         if (leaningJowler >= 20) {
             return 40;
@@ -194,8 +187,17 @@ public class ScoreBoard {
 
     // when button row is pressed, this function will be called
     public void setFinalScore(int rowNum) {
-        finalScore[rowNum - 1] = currentHandScore[rowNum - 1];
-        hasScore[rowNum - 1] = true;
+        finalScore[rowNum] = currentHandScore[rowNum];
+        System.out.println(finalScore[rowNum]);
+        System.out.println(currentHandScore[rowNum]);
+        hasScore[rowNum] = true;
+        for (int score:currentHandScore) {
+            System.out.print(score + " " );
+        }
+        System.out.println();
+        for (int score:finalScore) {
+            System.out.print(score + " ");
+        }
     }
 
     public int calculateBonus() {
@@ -218,29 +220,26 @@ public class ScoreBoard {
         total += calculateBonus();
         return total;
     }
-    
+
     public void setBonus() {
         finalScore[12] = calculateBonus();
     }
-    
+
     public void setTotal() {
         finalScore[13] = calculateFinalScore();
     }
-    
+
     public boolean getHasScore(int rowNum) {
         return hasScore[rowNum];
     }
-    
+
     public int getCurrentScore(int rowNum) {
         return currentHandScore[rowNum];
     }
-    
+
     public int getFinalScore(int rowNum) {
         return finalScore[rowNum];
     }
-    
-    // test
-    public void setFinalScore(int rowNum, int value) {
-        finalScore[rowNum] = value;
-    }
+
+
 }

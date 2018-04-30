@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package passthepigs;
+//package passthepigs;
 
 import java.util.*;
 
@@ -17,11 +17,11 @@ public class GameScreen {
         player1ScoreBoard = new ScoreBoard(player1Hand);
         player2ScoreBoard = new ScoreBoard(player1Hand);
     }
-    
+
     public void playGame() {
         Scanner in = new Scanner(System.in);
         char playAgain = 'y';
-        
+
         while (playAgain == 'y') {
             for (int turnCount = 0; turnCount < 24; turnCount++) {
                 if (turnCount % 2 == 0) { //player 1 turn
@@ -34,16 +34,16 @@ public class GameScreen {
                     playHand(2);
                 }
             }
-            
+
             System.out.println("-------PLAYER 1 FINAL SCOREBOARD-------");
             displayFinalScore(player1ScoreBoard);
             System.out.println();
             System.out.println("-------PLAYER 2 FINAL SCOREBOARD-------");
             displayFinalScore(player2ScoreBoard);
-            
+
             int player1Score = player1ScoreBoard.calculateFinalScore();
             int player2Score = player2ScoreBoard.calculateFinalScore();
-            
+
             if (player1Score > player2Score) {
                 System.out.println("Player 1 won!");
             } else if (player2Score > player1Score) {
@@ -51,7 +51,7 @@ public class GameScreen {
             } else {
                 System.out.println("Player 1 and Player 2 tied!");
             }
-            
+
             System.out.print("\nEnter 'y' to play again ");
             playAgain = in.next().charAt(0);
         }
@@ -63,12 +63,12 @@ public class GameScreen {
 
         int turn = 1;
 
-        while (turn <= 3 && !keepingAllDice(keep)) { 
+        while (turn <= 3 && !keepingAllDice(keep)) {
             // if player 1 presses roll button
             if (player == 1) {
-                player1Hand.rollPigs(keep);
+                player1Hand.rollPigs(keep.toCharArray());
             } else { // if player 2 presses roll button
-                player2Hand.rollPigs(keep);
+                player2Hand.rollPigs(keep.toCharArray());
             }
 
             // output roll
@@ -78,8 +78,8 @@ public class GameScreen {
             } else {
                 displayRoll(player2Hand);
             }
-            
-            
+
+
             //if not the last roll of the hand prompt the user for dice to keep
             if (turn < 3) {
                 System.out.println();
@@ -88,7 +88,7 @@ public class GameScreen {
             }
             turn++;
         }
-        
+
         //display the final dice of the hand
         System.out.println();
         System.out.println();
@@ -103,7 +103,7 @@ public class GameScreen {
             player2ScoreBoard.setCurrentScore();
             displayCurrentScore(player2ScoreBoard);
         }
-        
+
         System.out.println();
         System.out.print("enter number of line you wish to score: ");
         int keptScore = in.nextInt();
@@ -115,11 +115,11 @@ public class GameScreen {
         in.nextLine();
         System.out.println();
     }
-    
+
     public void displayRoll(Hand hand) {
         System.out.print(Arrays.toString(hand.getHandArray()));
     }
-   
+
     public boolean keepingAllDice(String keep) {
         int count = 0;
         char[] charArr = keep.toCharArray();
@@ -130,7 +130,7 @@ public class GameScreen {
         }
         return count == 4;
     }
-    
+
     public void displayCurrentScore (ScoreBoard score) {
         System.out.println();
         if (!score.getHasScore(0)) {
@@ -170,7 +170,7 @@ public class GameScreen {
             System.out.println("12. Score " + score.getCurrentScore(11) + " on the Yahtzee line");
         }
     }
-    
+
     public void displayFinalScore(ScoreBoard score) {
         System.out.println("1. Score " + score.getFinalScore(0) + " on the Side line");
         System.out.println("2. Score " + score.getFinalScore(1) + " on the Razorback line");
@@ -190,4 +190,3 @@ public class GameScreen {
         System.out.println("    Total: " + score.getFinalScore(13));
     }
 }
-
