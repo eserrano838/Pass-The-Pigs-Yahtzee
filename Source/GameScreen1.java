@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
 import javax.swing.*;
 
 public class GameScreen1 extends JFrame implements ActionListener
@@ -298,14 +297,15 @@ public class GameScreen1 extends JFrame implements ActionListener
         pig4.setText("ROLL");
     }
 
+    public void afterRowClick(){
+        setRowButtonsUnclickable();
+        turnCounter++;
+        resetHands();
+        resetKeeping();
+        togglePlayerLabel();
+    }
 
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-        System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
-        System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-        System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-        System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-        System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
         if (e.getSource() == sideBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -317,14 +317,8 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label12.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+           afterRowClick();
         } else if (e.getSource() == rzrBkBtn) {
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(1);
@@ -335,18 +329,8 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label13.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == trotterBtn) {
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(2);
@@ -357,18 +341,8 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label14.setForeground(Color.red);
             }
-            System.out.println("Player 1 scores " + Arrays.toString(player1ScoreBoard.currentHandScore));
-            System.out.println("Player 2 scores " + Arrays.toString(player2ScoreBoard.currentHandScore));
-            System.out.println("Player 1 final scores " + Arrays.toString(player1ScoreBoard.finalScore));
-            System.out.println("Player 2 final scores " + Arrays.toString(player2ScoreBoard.finalScore));
-            setRowButtonsUnclickable();
-            resetHands();
-            resetKeeping();
-            turnCounter++;
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == snouterBtn) {
-            System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
-            System.out.println("Player 2 hand: " + Arrays.toString(player2Hand.getHandArray()));
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
                 player1ScoreBoard.setFinalScore(3);
@@ -379,11 +353,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label15.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == leaningJowlerBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -395,11 +365,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label16.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == dbRzrbkBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -411,11 +377,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label17.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == dbTrottereBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -427,11 +389,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label18.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == dbSnouterBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -443,11 +401,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label19.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == dblnJowlerBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -459,9 +413,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label20.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            togglePlayerLabel();
+            afterRowClick();
         } else if (e.getSource() == mixedComboBtn) {
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -473,11 +425,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label21.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         }else if(e.getSource() == piggybackBtn){
             rollCounter = 0;
             if (turnCounter % 2 == 0) {
@@ -489,11 +437,7 @@ public class GameScreen1 extends JFrame implements ActionListener
                 displayFinalScore2(player2ScoreBoard);
                 label12.setForeground(Color.red);
             }
-            setRowButtonsUnclickable();
-            turnCounter++;
-            resetHands();
-            resetKeeping();
-            togglePlayerLabel();
+            afterRowClick();
         }else if(e.getSource() == pigBtn1) {
             if(keep[0] == 'n'){
                 keep[0] = 'y';
@@ -721,7 +665,7 @@ public class GameScreen1 extends JFrame implements ActionListener
 
     public static void main(String[] args) {
         JFrame frame = new GameScreen1();
-        frame.setTitle("Button Test");
+        frame.setTitle("PASS THE PIGS");
         frame.setLocationByPlatform(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
