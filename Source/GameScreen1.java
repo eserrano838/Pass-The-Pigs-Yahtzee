@@ -1,14 +1,8 @@
-
-
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
-import java.util.Scanner;
 import javax.swing.*;
 
-/**
- * A frame with a button panel
- */
 public class GameScreen1 extends JFrame implements ActionListener
 {
     private JPanel buttonPanel;
@@ -18,7 +12,6 @@ public class GameScreen1 extends JFrame implements ActionListener
     private char[] keep;
     private int turnCounter;
     private int rollCounter;
-    ImageIcon titleIcon = new ImageIcon("title.png");
     JLabel titleLabel = new JLabel(new ImageIcon("src/Images/title.PNG"));
     JLabel scoreBoardLabel = new JLabel("Row: ");
     JButton sideBtn = new JButton("Side");
@@ -79,7 +72,6 @@ public class GameScreen1 extends JFrame implements ActionListener
     public GameScreen1() {
         setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         int fontSize = 24;
-
         player1Hand = new Hand();
         player2Hand = new Hand();
         player1ScoreBoard = new ScoreBoard(player1Hand);
@@ -141,8 +133,6 @@ public class GameScreen1 extends JFrame implements ActionListener
         buttonPanel.add(label21, new GBC(10, 4).setFill(GBC.CENTER));
         buttonPanel.add(label22, new GBC(11, 4).setFill(GBC.CENTER));
 
-
-
         pig1.setBorder(BorderFactory.createLineBorder(Color.black));
         pig2.setBorder(BorderFactory.createLineBorder(Color.black));
         pig3.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -153,13 +143,9 @@ public class GameScreen1 extends JFrame implements ActionListener
         buttonPanel.add(pig4, new GBC(10, 5, 2, 3).setFill(GBC.CENTER));
         //// Hold Buttons
         pigBtn1.setFont(new Font("Ultra", Font.PLAIN, 24));
-        pigBtn1.setBackground(Color.ORANGE);
         pigBtn2.setFont(new Font("Ultra", Font.PLAIN, 24));
-        pigBtn2.setBackground(Color.ORANGE);
         pigBtn3.setFont(new Font("Ultra", Font.PLAIN, 24));
-        pigBtn3.setBackground(Color.ORANGE);
         pigBtn4.setFont(new Font("Ultra", Font.PLAIN, 24));
-        pigBtn4.setBackground(Color.ORANGE);
 
         buttonPanel.add(pigBtn1, new GBC(1, 8, 2, 1).setFill(GBC.CENTER));
         buttonPanel.add(pigBtn2, new GBC(4, 8, 2, 1).setFill(GBC.CENTER));
@@ -167,7 +153,6 @@ public class GameScreen1 extends JFrame implements ActionListener
         buttonPanel.add(pigBtn4, new GBC(10, 8, 2, 1).setFill(GBC.CENTER));
         rollBtn.setBackground(Color.WHITE);
         buttonPanel.add(rollBtn, new GBC(5, 9, 4, 1).setFill(GBC.CENTER));
-
 
         add(buttonPanel);
 
@@ -190,22 +175,6 @@ public class GameScreen1 extends JFrame implements ActionListener
 
         setHoldButtonsUnclickable();
         setRowButtonsUnclickable();
-
-    }
-
-    public void displayRoll(Hand hand) {
-        System.out.print(Arrays.toString(hand.getHandArray()));
-    }
-
-    public boolean keepingAllDice(String keep) {
-        int count = 0;
-        char[] charArr = keep.toCharArray();
-        for (int i = 0; i < 4; i++) {
-            if (charArr[i] == 'y') {
-                count++;
-            }
-        }
-        return count == 4;
     }
 
     public void displayCurrentScore1 (ScoreBoard score) {
@@ -590,9 +559,7 @@ public class GameScreen1 extends JFrame implements ActionListener
             setHoldButtonsClickable();
             setRowButtonsClickable();
             rollCounter++;
-        }else {
-
-        }
+        }else { }
     }
 
     public void togglePlayerLabel(){
@@ -645,18 +612,6 @@ public class GameScreen1 extends JFrame implements ActionListener
         dbTrottereBtn.setEnabled(true);
     }
 
-    public void doRollZero1(){
-
-    }
-
-    public void setRollBtnClickable(){
-        rollBtn.setEnabled(true);
-    }
-
-    public void setRollBtnUnclickable() {
-        rollBtn.setEnabled(false);
-    }
-
     public void updateDiceImages(){
         if(turnCounter % 2 == 0){
             Pig[] pigs = player1Hand.thePigs;
@@ -679,6 +634,83 @@ public class GameScreen1 extends JFrame implements ActionListener
             pig3.setText(pigs[2].toString());
             pig4.setText(pigs[3].toString());
         }
+//        Pig[] currentPigs;
+//        if(turnCounter % 2 == 0){ currentPigs = player1Hand.getHandArray(); }
+//        else { currentPigs = player2Hand.getHandArray(); }
+//
+//        for(int i = 0; i < 4; i++){
+//            if(currentPigs[i].pigVal == Pig.CurPig.SIDE){
+//                if( i == 0){
+//                    pig1.setIcon(new ImageIcon(sidePNG));
+//                }
+//                if( i == 1){
+//                    pig2.setIcon(new ImageIcon(sidePNG));
+//                }
+//                if( i == 2){
+//                    pig3.setIcon(new ImageIcon(sidePNG));
+//                }
+//                if( i == 3){
+//                    pig4.setIcon(new ImageIcon(sidePNG));
+//                }
+//
+//            }else if(currentPigs[i].pigVal == Pig.CurPig.RAZORBACK){
+//                if( i == 0){
+//                    pig1.setIcon(new ImageIcon(razorbackPNG));
+//                }
+//                if( i == 1){
+//                    pig2.setIcon(new ImageIcon(razorbackPNG));
+//                }
+//                if( i == 2){
+//                    pig3.setIcon(new ImageIcon(razorbackPNG));
+//                }
+//                if( i == 3){
+//                    pig4.setIcon(new ImageIcon(razorbackPNG));
+//                }
+//
+//            }else if (currentPigs[i].pigVal == Pig.CurPig.SNOUTER){
+//                if( i == 0){
+//                    pig1.setIcon(new ImageIcon(snouterPNG));
+//                }
+//                if( i == 1){
+//                    pig2.setIcon(new ImageIcon(snouterPNG));
+//                }
+//                if( i == 2){
+//                    pig3.setIcon(new ImageIcon(snouterPNG));
+//                }
+//                if( i == 3){
+//                    pig4.setIcon(new ImageIcon(snouterPNG));
+//                }
+//
+//            }else if (currentPigs[i].pigVal == Pig.CurPig.TROTTER){
+//                if( i == 0){
+//                    pig1.setIcon(new ImageIcon(trotterPNG));
+//                }
+//                if( i == 1){
+//                    pig2.setIcon(new ImageIcon(trotterPNG));
+//                }
+//                if( i == 2){
+//                    pig3.setIcon(new ImageIcon(trotterPNG));
+//                }
+//                if( i == 3){
+//                    pig4.setIcon(new ImageIcon(trotterPNG));
+//                }
+//
+//            }else {
+//                if( i == 0){
+//                    pig1.setIcon(new ImageIcon(leaningJowlerPNG));
+//                }
+//                if( i == 1){
+//                    pig2.setIcon(new ImageIcon(leaningJowlerPNG));
+//                }
+//                if( i == 2){
+//                    pig3.setIcon(new ImageIcon(leaningJowlerPNG));
+//                }
+//                if( i == 3) {
+//                    pig4.setIcon(new ImageIcon(leaningJowlerPNG));
+//                }
+//
+//            }
+    //}
     }
 
     public static void main(String[] args) {
@@ -704,6 +736,4 @@ public class GameScreen1 extends JFrame implements ActionListener
         player2Hand = new Hand();
         player1Hand = new Hand();
     }
-
-
 }
