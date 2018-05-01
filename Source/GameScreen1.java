@@ -278,19 +278,26 @@ public class GameScreen1 extends JFrame implements ActionListener
     }
 
     public void displayFinalScore1 (ScoreBoard score) {
-        System.out.println();
-            label1.setText(player1ScoreBoard.getFinalScore(0) + "");
-            label2.setText(player1ScoreBoard.getFinalScore(1) + "");
-            label3.setText(player1ScoreBoard.getFinalScore(2) + "");
-            label4.setText(player1ScoreBoard.getFinalScore(3) + "");
-            label5.setText(player1ScoreBoard.getFinalScore(4) + "");
-            label6.setText(player1ScoreBoard.getFinalScore(5) + "");
-            label7.setText(player1ScoreBoard.getFinalScore(6) + "");
-            label8.setText(player1ScoreBoard.getFinalScore(7) + "");
-            label9.setText(player1ScoreBoard.getFinalScore(8) + "");
-            label10.setText(player1ScoreBoard.getFinalScore(9) + "");
-            label11.setText(player1ScoreBoard.getFinalScore(10) + "");
+        label1.setText(player1ScoreBoard.getFinalScore(0) + "");
+        label2.setText(player1ScoreBoard.getFinalScore(1) + "");
+        label3.setText(player1ScoreBoard.getFinalScore(2) + "");
+        label4.setText(player1ScoreBoard.getFinalScore(3) + "");
+        label5.setText(player1ScoreBoard.getFinalScore(4) + "");
+        label6.setText(player1ScoreBoard.getFinalScore(5) + "");
+        label7.setText(player1ScoreBoard.getFinalScore(6) + "");
+        label8.setText(player1ScoreBoard.getFinalScore(7) + "");
+        label9.setText(player1ScoreBoard.getFinalScore(8) + "");
+        label10.setText(player1ScoreBoard.getFinalScore(9) + "");
+        label11.setText(player1ScoreBoard.getFinalScore(10) + "");
     }
+
+    public void resetPigs(){
+        pig1.setText("ROLL");
+        pig2.setText("ROLL");
+        pig3.setText("ROLL");
+        pig4.setText("ROLL");
+    }
+
 
     public void actionPerformed(ActionEvent e) {
         System.out.println("Player 1 hand: " + Arrays.toString(player1Hand.getHandArray()));
@@ -523,42 +530,40 @@ public class GameScreen1 extends JFrame implements ActionListener
         }else if(e.getSource() == rollBtn) {
             player1ScoreBoard.setCurrentHand(player1Hand);
             player2ScoreBoard.setCurrentHand(player2Hand);
-            if(turnCounter % 2 == 0 && rollCounter == 0){
-                System.out.println("Player 1's turn");
-                player1Hand.rollPigs("nnnn".toCharArray());
-                System.out.println(Arrays.toString(player1Hand.getHandArray()));
+            if(turnCounter % 2 == 0 && rollCounter < 3){
+                if(rollCounter == 0){
+                    player1Hand.rollPigs("nnnn".toCharArray());
+                }else{
+                    player1Hand.rollPigs(keep);
+                }
                 updateDiceImages();
                 player1ScoreBoard.setCurrentScore();
                 displayCurrentScore1(player1ScoreBoard);
-                System.out.println("Choose dice to keep and roll again, or select row to apply score to");
-            }else if(turnCounter % 2 != 0 && rollCounter == 0){
-                System.out.println("Player 2's turn");
-                player2Hand.rollPigs("nnnn".toCharArray());
-                System.out.println(Arrays.toString(player2Hand.getHandArray()));
+                rollCounter++;
+                System.out.println(rollCounter);
+            }else if (turnCounter % 2 != 0 && rollCounter < 3){
+                if(rollCounter == 0){
+                    player2Hand.rollPigs("nnnn".toCharArray());
+                }else{
+                    player2Hand.rollPigs(keep);
+                }
                 updateDiceImages();
                 player2ScoreBoard.setCurrentScore();
                 displayCurrentScore2(player2ScoreBoard);
-                System.out.println("Choose dice to keep and roll again, or select row to apply score to");
-            }else if(rollCounter < 3){
+                rollCounter++;
+                System.out.println(rollCounter);
+            }else{
+                JOptionPane.showMessageDialog(buttonPanel, "INVALID CHOICE, YOU CAN'T ROLL AGAIN");
                 if(turnCounter % 2 == 0){
-                    System.out.println("Player 1's turn");
-                    player1Hand.rollPigs(keep);
-                    updateDiceImages();
                     player1ScoreBoard.setCurrentScore();
                     displayCurrentScore1(player1ScoreBoard);
-                }else {
-                    System.out.println("Player 2's turn");
-                    player2Hand.rollPigs(keep);
-                    updateDiceImages();
+                }else{
                     player2ScoreBoard.setCurrentScore();
                     displayCurrentScore2(player2ScoreBoard);
                 }
-            }else{
-                System.out.println("INVALID CHOICE");
             }
             setHoldButtonsClickable();
             setRowButtonsClickable();
-            rollCounter++;
         }else { }
     }
 
@@ -568,6 +573,7 @@ public class GameScreen1 extends JFrame implements ActionListener
         }else{
             currentPlayer.setText("PLAYER 1's TURN");
         }
+        resetPigs();
     }
 
     public void setHoldButtonsUnclickable(){
