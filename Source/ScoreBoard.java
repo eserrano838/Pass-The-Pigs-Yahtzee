@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Pass the Pigs
+ * Scoreboard class
  */
-//package passthepigs;
 
 public class ScoreBoard {
     public int[] currentHandScore;
@@ -11,6 +9,9 @@ public class ScoreBoard {
     public int[] finalScore;
     private Hand hand;
 
+    /**
+     * ScoreBoard Constructor
+     */
     public ScoreBoard(Hand h) {
         setCurrentHand(h);
         currentHandScore = new int[11];
@@ -18,17 +19,18 @@ public class ScoreBoard {
         hasScore = new boolean[11];
     }
 
+    /**
+     * sets current hand for the scoreboard
+     * @param h Hand h
+     */
     public void setCurrentHand(Hand h) {
         currentHandScore = new int[11];
         hand = h;
     }
 
-    public void setTheScores(){
-        for (int score:finalScore) {
-
-        }
-    }
-
+    /**
+     * sets the current score array appropriately
+     */
     public int[] setCurrentScore() {
         if (!hasScore[0]){
             currentHandScore[0] = calculateSide();
@@ -66,6 +68,10 @@ public class ScoreBoard {
         return currentHandScore;
     }
 
+    /**
+     * calculates side score line
+     * @return integer score
+     */
     public int calculateSide() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -76,6 +82,10 @@ public class ScoreBoard {
         return 1 * currentCount;
     }
 
+    /**
+     * calculates razorback score line
+     * @return integer score
+     */
     public int calculateRazorback() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -86,6 +96,10 @@ public class ScoreBoard {
         return 3 * currentCount;
     }
 
+    /**
+     * calculates trotter score line
+     * @return integer score
+     */
     public int calculateTrotter() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -96,6 +110,10 @@ public class ScoreBoard {
         return 5 * currentCount;
     }
 
+    /**
+     * calculates snouter score line
+     * @return integer score
+     */
     public int calculateSnouter() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -106,6 +124,10 @@ public class ScoreBoard {
         return 7 * currentCount;
     }
 
+    /**
+     * calculates leaning jowler score line
+     * @return integer score
+     */
     public int calculateLeaningJowler() {
         int currentCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -116,6 +138,10 @@ public class ScoreBoard {
         return 10 * currentCount;
     }
 
+    /**
+     * calculates double razorback score line
+     * @return integer score
+     */
     public int calculateDoubleRazorback() {
         int razorback = calculateRazorback();
         // at least two pig razorback
@@ -126,6 +152,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates double trotter score line
+     * @return integer score
+     */
     public int calculateDoubleTrotter() {
         int trotter = calculateTrotter();
         // at least two pig trotter
@@ -136,6 +166,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates double snouter score line
+     * @return integer score
+     */
     public int calculateDoubleSnouter() {
         int snouter = calculateSnouter();
         // at least two pig snouter
@@ -146,6 +180,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates double leaning jowler score line
+     * @return integer score
+     */
     public int calculateDoubleLeaningJowler() {
         int leaningJowler = calculateLeaningJowler();
         // at least two pig leaning jowler
@@ -156,6 +194,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates mixed combo score line
+     * @return integer score
+     */
     public int calculateMixedCombo() {
         int total = 0;
         for (int i = 0; i < 4; i++) {
@@ -174,6 +216,10 @@ public class ScoreBoard {
         return total;
     }
 
+    /**
+     * calculates the Yahtzee (piggyback) score line
+     * @return integer score
+     */
     public int calculateYahtzee() {
         // all four leaning jowlers
         int leaningJowler = calculateLeaningJowler();
@@ -184,7 +230,10 @@ public class ScoreBoard {
         }
     }
 
-    // when button row is pressed, this function will be called
+    /**
+     * sets the final score array for a certain row number
+     * @param rowNum index you wish to score
+     */
     public void setFinalScore(int rowNum) {
         finalScore[rowNum] = currentHandScore[rowNum];
         System.out.println(finalScore[rowNum]);
@@ -199,6 +248,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates if scoreboard receives a bonus
+     * @return int score
+     */
     public int calculateBonus() {
         int upperTotal = 0;
         for (int i = 0; i < 5; i++) {
@@ -211,6 +264,10 @@ public class ScoreBoard {
         }
     }
 
+    /**
+     * calculates the total score for a scoreboard
+     * @return int total score
+     */
     public int calculateFinalScore() {
         int total = 0;
         for (int i = 0; i < 12; i++) {
@@ -220,25 +277,44 @@ public class ScoreBoard {
         return total;
     }
 
+    /**
+     * updates final score array with bonus
+     */
     public void setBonus() {
         finalScore[11] = calculateBonus();
     }
 
+    /**
+     * updates final score array with total
+     */
     public void setTotal() {
         finalScore[12] = calculateFinalScore();
     }
 
+    /**
+     * getter for hasScore array
+     * @param rowNum index you wish to know
+     * @return true is hasScore is true, else false
+     */
     public boolean getHasScore(int rowNum) {
         return hasScore[rowNum];
     }
 
+    /**
+     * getter for currentHandScore array
+     * @param rowNum index you wish to know
+     * @return int score
+     */
     public int getCurrentScore(int rowNum) {
         return currentHandScore[rowNum];
     }
 
+    /**
+     * getter for finalScore array
+     * @param rowNum index you wish to know
+     * @return int score
+     */
     public int getFinalScore(int rowNum) {
         return finalScore[rowNum];
     }
-
-
 }

@@ -1,3 +1,8 @@
+/**
+ * Pass the pigs
+ * GBC class
+ */
+
 import java.awt.*;
 
 public class GBC extends GridBagConstraints {

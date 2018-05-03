@@ -1,10 +1,11 @@
+/**
+ * Pass the pigs
+ * GameScreen class (GUI)
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-//com.alvinalexander.javasamples;
-
-import java.awt.GraphicsEnvironment;
 
 public class GameScreen extends JFrame implements ActionListener {
     private JPanel buttonPanel;
@@ -34,7 +35,7 @@ public class GameScreen extends JFrame implements ActionListener {
             "     Double Leaning Jowler: (40 points) At least 2 pigs are resting between their snouts and ears\n" +
             "     Mixed Combo: (? points) Any combination (chance) \n" +
             "     Piggyback: (500 points) 4 leaning jowlers (pretty much impossible)\n" +
-            "     Bonus: (35 points) If subtotal upper score (1st 5 lines) is >= 30 at the end of the game\n\n\n" +
+            "     Bonus: (35 points) If subtotal upper score (1st 5 lines) is >= 30 at the end of the game\n\n" +
             "THE DICE:\n" +
             "     The dice are pigs. When rolls they can land in 5 different possible positions\n" +
             "        1. Side (1 point) (65% probability)\n" +
@@ -86,8 +87,6 @@ public class GameScreen extends JFrame implements ActionListener {
     private JLabel label10 = new JLabel("0");
     private JLabel label11 = new JLabel("0");
     private JLabel player2Label = new JLabel("PLAYER 2");
-    //private JLabel label12 = new JLabel("0");
-    //private JLabel label13 = new JLabel("0");
     private JLabel label14 = new JLabel("0");
     private JLabel label15 = new JLabel("0");
     private JLabel label16 = new JLabel("0");
@@ -99,9 +98,6 @@ public class GameScreen extends JFrame implements ActionListener {
     private JLabel label22 = new JLabel("0");
     private JLabel label23 = new JLabel("0");
     private JLabel label24 = new JLabel("0");
-    // private JLabel label25 = new JLabel("0");
-    //
-    //private JLabel label26 = new JLabel("0");
     private String blankPNG = "src/Images/blank.png";
     private JLabel pig1 = new JLabel(new ImageIcon(blankPNG));
     private JLabel pig2 = new JLabel(new ImageIcon(blankPNG));
@@ -123,14 +119,10 @@ public class GameScreen extends JFrame implements ActionListener {
     private Hand player1Hand;
     private Hand player2Hand;
 
+    /**
+     * GameScreen constructor
+     */
     public GameScreen() {
-        String fonts[] =
-                GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-
-        for ( int i = 0; i < fonts.length; i++ )
-        {
-            System.out.println(fonts[i]);
-        }
         setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         player1Hand = new Hand();
         player2Hand = new Hand();
@@ -172,15 +164,11 @@ public class GameScreen extends JFrame implements ActionListener {
         sideBtn.setBackground(new java.awt.Color(210, 180, 0));
         sideBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         sideBtn.setBorderPainted(true);
-        //sideBtn.setOpaque(true);
-        //sideBtn.setPreferredSize(new Dimension(15, 26));
 
         sideBtn2.setForeground(new java.awt.Color(150, 10, 10));
         sideBtn2.setBackground(new java.awt.Color(210, 180, 0));
         sideBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         sideBtn2.setBorderPainted(true);
-        //sideBtn2.setOpaque(true);
-        //sideBtn2.setPreferredSize(new Dimension(15, 26));
 
         label2.setBackground(new java.awt.Color(210, 180, 0));
         label2.setOpaque(true);
@@ -196,15 +184,11 @@ public class GameScreen extends JFrame implements ActionListener {
         rzrBkBtn.setBackground(new java.awt.Color(210, 180, 0));
         rzrBkBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         rzrBkBtn.setBorderPainted(true);
-        //rzrBkBtn.setOpaque(true);
-        //rzrBkBtn.setPreferredSize(new Dimension(15, 26));
 
         rzrBkBtn2.setForeground(new java.awt.Color(150, 10, 10));
         rzrBkBtn2.setBackground(new java.awt.Color(210, 180, 0));
         rzrBkBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         rzrBkBtn2.setBorderPainted(true);
-        //rzrBkBtn2.setOpaque(true);
-        //rzrBkBtn2.setPreferredSize(new Dimension(15, 26));
 
         label3.setBackground(new java.awt.Color(210, 180, 0));
         label3.setOpaque(true);
@@ -220,15 +204,11 @@ public class GameScreen extends JFrame implements ActionListener {
         trotterBtn.setBackground(new java.awt.Color(210, 180, 0));
         trotterBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         trotterBtn.setBorderPainted(true);
-        //trotterBtn.setOpaque(true);
-        //trotterBtn.setPreferredSize(new Dimension(15, 26));
 
         trotterBtn2.setForeground(new java.awt.Color(150, 10, 10));
         trotterBtn2.setBackground(new java.awt.Color(210, 180, 0));
         trotterBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         trotterBtn2.setBorderPainted(true);
-        //trotterBtn2.setOpaque(true);
-        //trotterBtn2.setPreferredSize(new Dimension(15, 26));
 
         label4.setBackground(new java.awt.Color(210, 180, 0));
         label4.setOpaque(true);
@@ -244,15 +224,11 @@ public class GameScreen extends JFrame implements ActionListener {
         snouterBtn.setBackground(new java.awt.Color(210, 180, 0));
         snouterBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         snouterBtn.setBorderPainted(true);
-       // snouterBtn.setOpaque(true);
-        //snouterBtn.setPreferredSize(new Dimension(15, 26));
 
         snouterBtn2.setForeground(new java.awt.Color(150, 10, 10));
         snouterBtn2.setBackground(new java.awt.Color(210, 180, 0));
         snouterBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         snouterBtn2.setBorderPainted(true);
-        //snouterBtn2.setOpaque(true);
-        //snouterBtn2.setPreferredSize(new Dimension(15, 26));
 
         label5.setBackground(new java.awt.Color(210, 180, 0));
         label5.setOpaque(true);
@@ -268,15 +244,11 @@ public class GameScreen extends JFrame implements ActionListener {
         leaningJowlerBtn.setBackground(new java.awt.Color(210, 180, 0));
         leaningJowlerBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         leaningJowlerBtn.setBorderPainted(true);
-        //leaningJowlerBtn.setOpaque(true);
-        //leaningJowlerBtn.setPreferredSize(new Dimension(15, 26));
 
         leaningJowlerBtn2.setForeground(new java.awt.Color(150, 10, 10));
         leaningJowlerBtn2.setBackground(new java.awt.Color(210, 180, 0));
         leaningJowlerBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         leaningJowlerBtn2.setBorderPainted(true);
-        //leaningJowlerBtn2.setOpaque(true);
-        //leaningJowlerBtn2.setPreferredSize(new Dimension(15, 26));
 
         label8.setBackground(new java.awt.Color(210, 180, 0));
         label8.setOpaque(true);
@@ -292,15 +264,11 @@ public class GameScreen extends JFrame implements ActionListener {
         dbRzrbkBtn.setBackground(new java.awt.Color(210, 180, 0));
         dbRzrbkBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         dbRzrbkBtn.setBorderPainted(true);
-       // dbRzrbkBtn.setOpaque(true);
-        //dbRzrbkBtn.setPreferredSize(new Dimension(15, 26));
 
         dbRzrbkBtn2.setForeground(new java.awt.Color(150, 10, 10));
         dbRzrbkBtn2.setBackground(new java.awt.Color(210, 180, 0));
         dbRzrbkBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         dbRzrbkBtn2.setBorderPainted(true);
-        //dbRzrbkBtn2.setOpaque(true);
-        //dbRzrbkBtn2.setPreferredSize(new Dimension(15, 26));
 
         label6.setBackground(new java.awt.Color(210, 180, 0));
         label6.setOpaque(true);
@@ -316,14 +284,10 @@ public class GameScreen extends JFrame implements ActionListener {
         dbTrottereBtn.setBackground(new java.awt.Color(210, 180, 0));
         dbTrottereBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         dbTrottereBtn.setBorderPainted(true);
-        //dbTrottereBtn.setOpaque(true);
-        //dbTrottereBtn.setPreferredSize(new Dimension(15, 26));
 
         dbTrottereBtn2.setForeground(new java.awt.Color(150, 10, 10));
         dbTrottereBtn2.setBackground(new java.awt.Color(210, 180, 0));
         dbTrottereBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
-        //dbTrottereBtn2.setBorderPainted(true);
-        //dbTrottereBtn2.setOpaque(true);
 
         label7.setBackground(new java.awt.Color(210, 180, 0));
         label7.setOpaque(true);
@@ -339,14 +303,11 @@ public class GameScreen extends JFrame implements ActionListener {
         dbSnouterBtn.setBackground(new java.awt.Color(210, 180, 0));
         dbSnouterBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         dbSnouterBtn.setBorderPainted(true);
-        //dbSnouterBtn.setOpaque(true);
-        //dbSnouterBtn.setPreferredSize(new Dimension(15, 26));
 
         dbSnouterBtn2.setForeground(new java.awt.Color(150, 10, 10));
         dbSnouterBtn2.setBackground(new java.awt.Color(210, 180, 0));
         dbSnouterBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         dbSnouterBtn2.setBorderPainted(true);
-        //dbSnouterBtn2.setOpaque(true);
 
         label9.setBackground(new java.awt.Color(210, 180, 0));
         label9.setOpaque(true);
@@ -362,14 +323,11 @@ public class GameScreen extends JFrame implements ActionListener {
         dblnJowlerBtn.setBackground(new java.awt.Color(210, 180, 0));
         dblnJowlerBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         dblnJowlerBtn.setBorderPainted(true);
-        //dblnJowlerBtn.setOpaque(true);
-        //dblnJowlerBtn.setPreferredSize(new Dimension(15, 26));
 
         dblnJowlerBtn2.setForeground(new java.awt.Color(150, 10, 10));
         dblnJowlerBtn2.setBackground(new java.awt.Color(210, 180, 0));
         dblnJowlerBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         dblnJowlerBtn2.setBorderPainted(true);
-        //dblnJowlerBtn2.setOpaque(true);
 
         label10.setBackground(new java.awt.Color(210, 180, 0));
         label10.setOpaque(true);
@@ -385,14 +343,11 @@ public class GameScreen extends JFrame implements ActionListener {
         mixedComboBtn.setBackground(new java.awt.Color(210, 180, 0));
         mixedComboBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         mixedComboBtn.setBorderPainted(true);
-       // mixedComboBtn.setOpaque(true);
-       // mixedComboBtn.setPreferredSize(new Dimension(15, 26));
 
         mixedComboBtn2.setForeground(new java.awt.Color(150, 10, 10));
         mixedComboBtn2.setBackground(new java.awt.Color(210, 180, 0));
         mixedComboBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         mixedComboBtn2.setBorderPainted(true);
-        //mixedComboBtn2.setOpaque(true);
 
         label11.setBackground(new java.awt.Color(210, 180, 0));
         label11.setOpaque(true);
@@ -408,17 +363,13 @@ public class GameScreen extends JFrame implements ActionListener {
         piggybackBtn.setBackground(new java.awt.Color(210, 180, 0));
         piggybackBtn.setFont(new Font("Cochin", Font.BOLD, 18));
         piggybackBtn.setBorderPainted(true);
-       // piggybackBtn.setOpaque(true);
-       // piggybackBtn.setPreferredSize(new Dimension(15, 26));
 
         piggybackBtn2.setForeground(new java.awt.Color(150, 10, 10));
         piggybackBtn2.setBackground(new java.awt.Color(210, 180, 0));
         piggybackBtn2.setFont(new Font("Cochin", Font.BOLD, 18));
         piggybackBtn2.setBorderPainted(true);
-        //piggybackBtn2.setOpaque(true);
 
         buttonPanel.add(bonusBtn,new GBC(12,3).setFill(GBC.HORIZONTAL));
-//buttonPanel.add(scoreBoardLabel, new GBC(0,1).setFill(GBC.HORIZONTAL).setInsets(1));
         buttonPanel.add(player1Label,new GBC(0,1).setFill(GBC.HORIZONTAL));
         player1Label.setForeground(new java.awt.Color(210, 180, 0));
         player1Label.setBackground(new java.awt.Color(150, 10, 10));
@@ -472,8 +423,6 @@ public class GameScreen extends JFrame implements ActionListener {
         buttonPanel.add(label9, new GBC(1,10).setFill(GBC.CENTER).setInsets(0,0,0,20));
         buttonPanel.add(label10, new GBC(1,11).setFill(GBC.CENTER).setInsets(0,0,0,20));
         buttonPanel.add(label11, new GBC(1,12).setFill(GBC.CENTER).setInsets(0,0,0,20));
-        //buttonPanel.add(label12, new GBC(1,13).setFill(GBC.CENTER));
-        //buttonPanel.add(label13, new GBC(1,14).setFill(GBC.CENTER));
 
         buttonPanel.add(player2Label,new GBC(20,1).setFill(GBC.HORIZONTAL).setInsets(1));
         buttonPanel.add(sideBtn2, new GBC(20,2).setFill(GBC.HORIZONTAL));
@@ -501,8 +450,6 @@ public class GameScreen extends JFrame implements ActionListener {
         buttonPanel.add(label22, new GBC(19,10).setFill(GBC.CENTER).setInsets(0,20,0,0));
         buttonPanel.add(label23, new GBC(19,11).setFill(GBC.CENTER).setInsets(0,20,0,0));
         buttonPanel.add(label24, new GBC(19,12).setFill(GBC.CENTER).setInsets(0,20,0,0));
-        // buttonPanel.add(label25, new GBC(16,13).setFill(GBC.CENTER));
-        // buttonPanel.add(label26, new GBC(16,14).setFill(GBC.CENTER));
 
         rollBtn.setBackground(Color.WHITE);
         rollBtn.setBorder(BorderFactory.createEmptyBorder());
@@ -519,7 +466,6 @@ public class GameScreen extends JFrame implements ActionListener {
         buttonPanel.add(pig2, new GBC(7,4,3,4).setFill(GBC.CENTER));
         buttonPanel.add(pig3, new GBC(11,4,3,4).setFill(GBC.CENTER));
         buttonPanel.add(pig4, new GBC(15,4,3,4).setFill(GBC.CENTER));
-
 
         pigBtn1.setFont(new Font("Cochin", Font.BOLD, 24));
         pigBtn1.setForeground(new java.awt.Color(150, 10, 10));
@@ -550,7 +496,6 @@ public class GameScreen extends JFrame implements ActionListener {
         buttonPanel.add(pigBtn3, new GBC(11,6,3,7).setFill(GBC.HORIZONTAL));
         buttonPanel.add(pigBtn4, new GBC(15,6,3,7).setFill(GBC.HORIZONTAL));
 
-
         add(buttonPanel);
 
         sideBtn.addActionListener(this);
@@ -580,12 +525,6 @@ public class GameScreen extends JFrame implements ActionListener {
         mixedComboBtn2.addActionListener(this);
         piggybackBtn2.addActionListener(this);
 
-        //totalBtn2.addActionListener(this);
-        // totalBtn.addActionListener(this);
-
-        /*bonusBtn2.addActionListener(this);
-        bonusBtn.addActionListener(this);*/
-
         pigBtn4.addActionListener(this);
         pigBtn2.addActionListener(this);
         pigBtn1.addActionListener(this);
@@ -596,6 +535,10 @@ public class GameScreen extends JFrame implements ActionListener {
         setRowButtonsUnclickable();
     }
 
+    /**
+     * display the current score of player 1
+     * @param score
+     */
     private void displayCurrentScore1 (ScoreBoard score) {
         System.out.println();
         if (!score.getHasScore(0)) {
@@ -633,6 +576,10 @@ public class GameScreen extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * display the current score of player 2
+     * @param score
+     */
     private void displayCurrentScore2 (ScoreBoard score) {
         System.out.println();
         if (!score.getHasScore(0)) {
@@ -670,6 +617,9 @@ public class GameScreen extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * display final scores of player 2
+     */
     private void displayFinalScore2 () {
         System.out.println();
         label14.setText(player2ScoreBoard.getFinalScore(0) + "");
@@ -685,6 +635,9 @@ public class GameScreen extends JFrame implements ActionListener {
         label24.setText(player2ScoreBoard.getFinalScore(10) + "");
     }
 
+    /**
+     * display final scores of player 1
+     */
     private void displayFinalScore1 () {
         label1.setText(player1ScoreBoard.getFinalScore(0) + "");
         label2.setText(player1ScoreBoard.getFinalScore(1) + "");
@@ -699,22 +652,16 @@ public class GameScreen extends JFrame implements ActionListener {
         label11.setText(player1ScoreBoard.getFinalScore(10) + "");
     }
 
-    private void resetPigs(){
-        if(turnCounter % 2 == 0){
-            JOptionPane.showMessageDialog(buttonPanel, "ROLL PLAYER 1");
-        }else{
-            JOptionPane.showMessageDialog(buttonPanel, "ROLL PLAYER 2");
-        }
-    }
-
+    /**
+     * after line is scored, update buttons and counters
+     */
     private void afterRowClick(){
         setRowButtonsUnclickable();
         setRowButtonsUnclickable2();
         setHoldButtonsUnclickable();
         turnCounter++;
-        System.out.println("counter" + turnCounter);
+        System.out.println("counter: " + turnCounter);
         if(turnCounter == 22) {
-            System.out.println("here");
             finishGame();
         } else {
             resetHands();
@@ -723,6 +670,11 @@ public class GameScreen extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * calculates and displays bonus and final score for each player
+     * displays message of which player wins
+     * allow user to choose to play again or not
+     */
     public void finishGame() {
         player1ScoreBoard.setBonus();
         player2ScoreBoard.setBonus();
@@ -740,42 +692,36 @@ public class GameScreen extends JFrame implements ActionListener {
 
         if (total1 > total2) {
             JOptionPane.showMessageDialog(buttonPanel, "PLAYER 1 WON!");
-            //JOptionPane.showMessageDialog(new ImageIcon("src/Images/partyPig.PNG"));)
             int yesORno = JOptionPane.showConfirmDialog(buttonPanel, "Would you like to play again?","Play Again",JOptionPane.YES_NO_OPTION);
             if(yesORno == 0){
                 resetGame();
-            }
-            else{
-                setVisible(false);
-                // exit the frame window
+            } else {
+                setVisible(false); // exit the frame window
             }
         } else if (total1 < total2) {
             JOptionPane.showMessageDialog(buttonPanel, "PLAYER 2 WON!");
             int yesORno = JOptionPane.showConfirmDialog(buttonPanel, "Would you like to play again?","Play Again",JOptionPane.YES_NO_OPTION);
             if(yesORno == 0){
                 resetGame();
+            } else {
+                setVisible(false); // exit the frame window
             }
-            else{
-                setVisible(false);
-                // exit the frame window
-            }
-
         } else {
             JOptionPane.showMessageDialog(buttonPanel, "TIE!");
             int yesORno = JOptionPane.showConfirmDialog(buttonPanel, "Would you like to play again?","Play Again",JOptionPane.YES_NO_OPTION);
             if(yesORno == 0){
                 resetGame();
+            } else{
+                setVisible(false); // exit the frame window
             }
-            else{
-                setVisible(false);
-                // exit the frame window
-            }
-
         }
-
-        //remove(buttonPanel);
     }
 
+    /**
+     * resets game data
+     * new player scoreboards and hands
+     * resets buttons and displays
+     */
     public void resetGame() {
         label1.setText("0");
         label2.setText("0");
@@ -839,9 +785,12 @@ public class GameScreen extends JFrame implements ActionListener {
         resetHands();
         resetKeeping();
         togglePlayerLabel();
-
     }
 
+    /**
+     * actions to perform for certain button clicks
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sideBtn) {
             rollCounter = 0;
@@ -989,7 +938,6 @@ public class GameScreen extends JFrame implements ActionListener {
                 pigBtn1.setForeground(new java.awt.Color(150, 10, 10));
                 pigBtn1.setBorderPainted(true);
                 pigBtn1.setOpaque(true);
-
             }
         }else if(e.getSource() == pigBtn2) {
             if(keep[1] == 'n'){
@@ -1088,6 +1036,9 @@ public class GameScreen extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * disables players buttons during other players turn
+     */
     private  void setClickableUnclickableAfterRollClick(){
         setHoldButtonsClickable();
         if(turnCounter % 2 == 0){
@@ -1101,15 +1052,20 @@ public class GameScreen extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * updates label for player's turn
+     */
     private void togglePlayerLabel(){
         if(currentPlayerLabel.getText().equals("Player 1's turn")){
             currentPlayerLabel.setText("Player 2's turn");
         }else{
             currentPlayerLabel.setText("Player 1's turn");
         }
-        //resetPigs();
     }
 
+    /**
+     * hold buttons unclickable
+     */
     private void setHoldButtonsUnclickable(){
         pigBtn2.setEnabled(false);
         pigBtn1.setEnabled(false);
@@ -1117,6 +1073,9 @@ public class GameScreen extends JFrame implements ActionListener {
         pigBtn4.setEnabled(false);
     }
 
+    /**
+     * hold buttons clickable
+     */
     private void setHoldButtonsClickable(){
         pigBtn2.setEnabled(true);
         pigBtn1.setEnabled(true);
@@ -1124,6 +1083,9 @@ public class GameScreen extends JFrame implements ActionListener {
         pigBtn4.setEnabled(true);
     }
 
+    /**
+     * player 1 scoreboard buttons uclickable
+     */
     private void setRowButtonsUnclickable(){
         sideBtn.setEnabled(false);
         trotterBtn.setEnabled(false);
@@ -1138,6 +1100,9 @@ public class GameScreen extends JFrame implements ActionListener {
         dbTrottereBtn.setEnabled(false);
     }
 
+    /**
+     * player 1 scoreboard buttons clickable
+     */
     private void setRowButtonsClickable(){
         sideBtn.setEnabled(true);
         trotterBtn.setEnabled(true);
@@ -1152,6 +1117,9 @@ public class GameScreen extends JFrame implements ActionListener {
         dbTrottereBtn.setEnabled(true);
     }
 
+    /**
+     * player 2 scoreboard buttons unclickable
+     */
     private void setRowButtonsUnclickable2(){
         sideBtn2.setEnabled(false);
         trotterBtn2.setEnabled(false);
@@ -1167,6 +1135,9 @@ public class GameScreen extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * player 2 scoreboard buttons clickable
+     */
     private void setRowButtonsClickable2(){
         sideBtn2.setEnabled(true);
         trotterBtn2.setEnabled(true);
@@ -1181,6 +1152,9 @@ public class GameScreen extends JFrame implements ActionListener {
         dbTrottereBtn2.setEnabled(true);
     }
 
+    /**
+     * rolling pigs, update images
+     */
     private void updateDiceImages(){
         Pig[] currentPigs;
         if(turnCounter % 2 == 0){ currentPigs = player1Hand.getHandArray(); }
@@ -1269,6 +1243,9 @@ public class GameScreen extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * reset hold buttons
+     */
     private void resetKeeping(){
         pigBtn1.setText("HOLD");
         pigBtn1.setBackground(new java.awt.Color(210, 180, 0));
@@ -1300,13 +1277,18 @@ public class GameScreen extends JFrame implements ActionListener {
         keep[3] = 'n';
     }
 
+    /**
+     * reset player hands
+     */
     private void resetHands(){
         player2Hand = new Hand();
         player1Hand = new Hand();
     }
 
+    /**
+     * disable scorelines buttons for player 1 that have been scored
+     */
     private void disableRowsWithScores() {
-        //boolean[] hasScoreArray = player1ScoreBoard.getHasScore();
         for (int i = 0; i < 11; i++) {
             if (player1ScoreBoard.getHasScore(i)) {
                 switch (i) {
@@ -1343,12 +1325,6 @@ public class GameScreen extends JFrame implements ActionListener {
                     case 10:
                         piggybackBtn.setEnabled(false);
                         break;
-                    /*case 11:
-                        bonusBtn.setEnabled(false);
-                        break;
-                    case 12:
-                        totalBtn.setEnabled(false);
-                        break;*/
                     default:
                         break;
 
@@ -1358,6 +1334,9 @@ public class GameScreen extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * disable scorelines buttons for player 2 that have been scored
+     */
     private void disableRowsWithScores2() {
         //boolean[] hasScoreArray = player2ScoreBoard.getHasScore();
         for (int i = 0; i < 11; i++) {
@@ -1396,17 +1375,10 @@ public class GameScreen extends JFrame implements ActionListener {
                     case 10:
                         piggybackBtn2.setEnabled(false);
                         break;
-                    /*case 11:
-                        bonusBtn2.setEnabled(false);
-                        break;
-                    case 12:
-                        totalBtn2.setEnabled(false);*/
                     default:
                         break;
-
                 }
             }
         }
-
     }
 }
