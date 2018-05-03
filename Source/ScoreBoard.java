@@ -29,7 +29,6 @@ public class ScoreBoard {
         }
     }
 
-
     public int[] setCurrentScore() {
         if (!hasScore[0]){
             currentHandScore[0] = calculateSide();
@@ -222,11 +221,11 @@ public class ScoreBoard {
     }
 
     public void setBonus() {
-        finalScore[12] = calculateBonus();
+        finalScore[11] = calculateBonus();
     }
 
     public void setTotal() {
-        finalScore[13] = calculateFinalScore();
+        finalScore[12] = calculateFinalScore();
     }
 
     public boolean getHasScore(int rowNum) {
